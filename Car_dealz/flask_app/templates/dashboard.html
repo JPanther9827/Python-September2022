@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+    <p>{{message}}</p>
+  {% endfor %}
+  <h1>Welcome to Car Dealerz, {{logged_user.first_name}}</h1>
+  <a href="/users/logout" role="button" loginout="button">logout</a>
+  
+  <p>Cars for Sale</p>
+  <table>
+    <thread>
+    <tr>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Seller</th>
+      <th>Actions</th>
+    </tr>
+  </thread>
+
+  <tbody>
+    {% for dealer in cardealer %}
+    <tr>
+      <td>{{dealer.model}}</td>
+      <td>{{dealer.year}}</td>
+      <td>{{dealer.first_name}} {{dealer.last_name}}</td>
+      <td>
+        <a href="/cardealer/{{dealer.id}}">View</a> 
+        {% if session['user_id'] ==  dealer.customer_id %}
+        | <a href="/cardealer/{{dealer.id}}/delete">Delete</a> |
+        <a href="/cardealer/{{dealer.id}}/edit">Edit</a> 
+        {%endif%}
+      </td> 
+    </tr>
+   {%endfor%}
+  </tbody>
+  </table>
+  <a href="/cardealer/new">Add a Car</a>
+</body>
+</html>

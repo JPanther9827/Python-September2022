@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+        <h1>Edit Recipe!</h1>
+       <a href="/dashboard">back to recipes</a>
+        <a href="">logout</a>
+    
+        <div>
+            {% for message in get_flashed_messages() %}
+            <p>{{message}}</p>
+            {% endfor %}
+        <form action="/recipe/{{this_recipe.id}}/update" method="post">
+        
+        <label for="">Name:</label>
+        <input type="text" name="name" id="name" value="{{this_recipe.name}}">
+
+        <label for="">Description:</label>
+        <textarea name="description" id="description" cols="30" rows="10">{{this_recipe.description}}</textarea>
+
+        <label for="">Instructions:</label>
+        <textarea name="instruction" id="instruction" cols="30" rows="10">{{this_recipe.instruction}}</textarea>
+
+        Date Cooked/Made: 
+        <label for="">Date</label>
+        <input type="date" name="date" id="date"value="{{this_recipe.date}}">
+
+        Under 30 Minutes?
+        <label for="">Yes</label>
+        <input type="radio" name="under" id="under" value="1" {% if this_recipe.under == 1 %}checked{%endif%}>
+        <label for="">No</label>
+        <input type="radio" name="under" id="under" value="0" {% if this_recipe.under == 0 %}checked{%endif%}>
+
+        <button>Submit</button>
+    </form>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>

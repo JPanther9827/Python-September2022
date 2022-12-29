@@ -1,0 +1,35 @@
+virtual environments: used to control evrsions of our packages for our apps, walled off from the rest of our computer
+    
+    step 0: pip install pipenv - we run this ONCE to install it to our computer globally (does not matter where you run)
+    
+    step 0.1: python -m pipenv
+    
+    step 1: open cmder and navigate to the folder we will be working in
+    
+    step 2 :in cmder, run: pipenv install flask   
+    this creates our virtual environment in the folder, and also installs flask
+    
+    step 3: in cmder, run: pipenv shell
+    this makes our cmder enter the virtual environment
+    
+    step 4: in cmder, run: python server.py
+    usually the file we're going to run is called server.py
+    
+    step 5: to exit server.py and return to the shell, we need to hit CTRL+C
+    
+    step 6: then we can run exit to leave the shell
+    when were done working in the environment we run exit to leave
+
+    (====================================================================================================================)
+    Now if you navigate to localhost:5000/ in your browser, you should see the message "Hello World!"
+
+You just created your first web server!
+
+Why are we going to localhost:5000? The Flask web server you created listens for an HTTP request on port 5000 (notice in your terminal that your code is constantly running). Whenever a request is sent to localhost:5000, the server looks at the URL being requested and sends the appropriate response. If we go to route "/", the hello_world() function will run. Since we (or the client) called the function, we receive what the function returns!
+
+We also did a couple of important things in the code above:
+
+We imported the Flask class. You will need this line in every application you build with Flask.
+We made an instance of the Flask class called "app". You will need this line in every application you build with Flask.
+We set up a routing rule using the "@" decorator with the route method: @app.route("/route_string"). The routing rule is associated with the function immediately following it.
+Finally, we ran the app! This takes all of our routing rules that we set up and actually starts up the server.

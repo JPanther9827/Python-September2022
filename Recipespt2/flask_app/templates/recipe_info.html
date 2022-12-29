@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <a href="/dashboard">back to recipes</a>
+    <a href="/user/logout">logout</a>
+    
+    <div>
+    
+        <h1>Welcome, {{logged_user.first_name}}</h1>
+        <p>Spam Musubi</p>
+        <p>Posted by: {{this_recipe.planner.first_name}} {{this_recipe.planner.last_name}}</p>
+
+        <p>Description: {{this_recipe.description}}</p>
+        <p>Under 30 MInutes? {{this_recipe.under}}</p>
+        <p>Instructions: {{this_recipe.instruction}}</p>
+        
+
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

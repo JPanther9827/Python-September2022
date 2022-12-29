@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Edit</h3>
+    <div>
+     <a href="/welcome">Home</a>
+    </div>
+
+    {% for message in get_flashed_messages() %}
+    <p>{{message}}</p>
+    {%endfor%}
+
+    <form action="/parties/{{party.id}}/update" method="post"></form>
+    <form action="/users/register" method="post"></form>
+        <label for="what">what:</label>
+        <input type="text" name="what" id="what" value="{{party.what}}">
+        <label for="where">location:</label>
+        <input type="text" name="location" id="location" value="{{party.location}}">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date"value="{{party.date}}">
+
+        <div>
+          All Ages:
+        <label for="true">True</label>
+        <input type="radio" name="all_ages" id="true" value="1" {% if party.all_ages == 1 %}checked{%endif%}>
+        <label for="false">True</label>
+        <input type="radio" name="all_ages" id="false" value="0"{% if party.all_ages == 0 %}checked{%endif%}>
+        </div>
+
+        <br>
+        <label for="Description">Description:</label>
+        <textarea id="description" name="description" rows="5" cols="33">{{party.description}}</textarea>
+        <br>
+        <button>Edit party</button>
+</body>
+</html>

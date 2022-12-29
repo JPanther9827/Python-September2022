@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Add A Party</h3> 
+    <div>
+     <a href="/welcome">Home</a>
+    </div>
+
+    {% for message in get_flashed_messages() %}
+    <p>{{message}}</p>
+    {%endfor%}
+
+    <!-- <form action="/parties/create" method="post"></form> -->
+    <form action="users/register" method="post">
+        <label for="what">what:</label>
+        <input type="text" name="what" id="what">
+        <label for="where">where:</label>
+        <input type="text" name="where" id="where">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+    </form>
+        <div>
+          All Ages:
+        <label for="true">True</label>
+        <input type="radio" name="all_ages" id="true" value="1">
+        <label for="false">True</label>
+        <input type="radio" name="all_ages" id="false" value="0">
+        </div>
+
+        <br>
+        <label for="Description">Description:</label>
+        <textarea id="description" name="description" rows="5" cols="33"></textarea>
+        <br>
+        <button>Add party</button>
+</body>
+</html>

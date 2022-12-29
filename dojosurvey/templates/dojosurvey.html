@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <form action="/processing" method="post">
+    <label for="your_name">Your Name:</label>
+    <input type="text" name="your_name" id="yourname">
+
+    <label for="my_location">Dojo Location:</label>
+    <select name="my_location" id="my_location">
+        <option value="">--Please choose an option--
+        </option>
+        <option value="Florida">Florida</option>
+        <option value="California"> California</option>
+        <option value="Indiana">Indiana</option>
+        <option value="Arizona">Arizona</option>
+        <option value="Utah">Utah</option>
+    </select>
+    
+    <label for="favorite_language">Favorite language:</label>
+    <select name="favorite_language" id="favorite_language">
+        <option value="">--Please choose an option--
+        </option>
+        <option value="Java">Java</option>
+        <option value="Python"> Python</option>
+        <option value="C#">C#</option>
+        <option value="C++">C++</option>
+        <option value="PHP">PHP</option>
+    </select>
+    <br>
+    <p>Comment(optional):</p>
+    <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+    <br>
+    <form action="/show" method='post'>
+        <button type="submit">button</button>
+    </form>
+    </div>
+</body>
+</html>

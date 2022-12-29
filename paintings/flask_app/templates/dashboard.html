@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        {% for message in get_flashed_messages() %}
+        <p>{{message}}</p>
+      {% endfor %}
+      <h1>Welcome, {{logged_user.first_name}}</h1>
+      <a href="/users/logout" role="button" loginout="button">logout</a>
+      <a href="/painting/new">Add a Painting</a>
+
+      <p>Painting</p>
+  <table>
+    <thread>
+    <tr>
+      <th>title</th>
+      <th>description</th>
+      <th>price</th>
+    </tr>
+  </thread>
+
+  <tbody>
+    {% for painting in paintings %}
+    <tr>
+        <td>{{painting.title}}</td>
+      <td>{{painting.description}}</td>
+      <td>{painting.first_name}} {{dealer.last_name}}</td>
+      <td>
+        <a href="/paintings/{{painting.id}}">View</a> 
+        {% if session['user_id'] ==  painting.customer_id %}
+        | <a href="/paintings/{{painting.id}}/delete">Delete</a> |
+        <a href="/paintings/{{painting.id}}/edit">Edit</a> 
+        {%endif%}
+      </td> 
+    </tr>
+   {%endfor%}
+  </tbody>
+  </table>
+
+    </div>
+</body>
+</html>

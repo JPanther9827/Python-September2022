@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h1>Sasquatch Websighting</h1>
+        <h1>Edit this sighting!</h1>
+       <a href="/dashboard">dashbaord</a>
+        <a href="/user/logout">logout</a>
+    
+        <div>
+            {% for message in get_flashed_messages() %}
+            <p>{{message}}</p>
+            {% endfor %}
+        <form action="/sasquatch/{{this_sasquatch.id}}/update" method="post">
+        
+        <label for="">location:</label>
+        <input type="text" name="location" id="location" value="{{this_sasquatch.location}}">
+
+        <label for="">what happened:</label>
+        <textarea name="what_happened" id="what_happened" cols="30" rows="10">{{this_sasquatch.what_happened}}</textarea>
+
+
+        Date of Sitting: 
+        <label for="">Date</label>
+        <input type="date" name="date" id="date"value="{{this_sasquatch.date}}">
+
+        Number of Sitting:
+        <label for=""></label>
+        <input type="number" id="num_of_sasquatch" name="num_of_sasquatch" min="1" max="5">
+        <button>Report</button>
+    </form>
+    </div>

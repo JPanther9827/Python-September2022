@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <h1>Welcome, {{logged_user.first_name}}</h1>
+  
+    <h1>Sasquatch Websighting</h1>
+    <p>Reported Sightings:</p>
+    <a href="/sasquatch/new">Report a sighting</a> 
+    <a href="/user/logout">Logout</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>location</th>
+            <th> what happen</th>
+            <th>Posted By</th>
+            <th>Date </th>
+            
+        </tr>
+        </thead>
+        <tbody>
+            
+            {% for one_sasquatch in all_sasquatch  %} 
+            <tr> 
+            <td>{{one_sasquatch.location}}</td> 
+            <!-- <td>{% if one_sasquatch.what_happened ==1%}True{%else%}False{%endif%} -->
+            <td>{{one_sasquatch.what_happened}}</td>
+            <td>{{one_sasquatch.planner.first_name}}{{one_sasquatch.planner.last_name}} </td>
+            <td>{{one_sasquatch.date}}</td>
+            <td>
+                <a href="/sasquatch/{{one_sasquatch.id}}">View</a> |
+                {% if logged_user.id == one_sasquatch.planner.id %}
+                <a href="/sasquatch/{{one_sasquatch.id}}/edit">Edit</a> |
+                <a href="/sasquatch/{{one_sasquatch.id}}/delete">Delete</a>
+                {% endif %}
+            </td>
+            </tr>
+    {%endfor%}
+    </tbody>
+    </table> 
+    </form>
+
+    </div>
+    
+
+
+
+</body>
+</html>

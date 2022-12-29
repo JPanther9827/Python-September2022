@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+      <p>{{message}}</p>
+    {% endfor %}
+    <form action="/dashboard" method="post">
+    <h1>Howdy, {{logged_user.first_name}}</h1>
+
+    <a href="/welcome" role="button" create="button">+ Create</a>
+    <a href="/users/logout" role="button" loginout="button">logout</a>
+    
+    <p>All Tv Shows:</p>
+    <table>
+      <thread>
+      <tr>
+        <th>Title</th>
+        <th>Network</th>
+        <th>Description</th>
+        <th>posted by</th>
+        <th>Release Date</th>
+        <th>Actions</th>
+      </tr>
+    </thread>
+
+    <tbody>
+      {% for shows in tv_shows %}
+      <tr>
+        <td>{{shows.title}}</td>
+        <td>{{shows.Network}}</td>
+        <td>{{shows.date}}</td>
+        <td>{{shows.description}}</td>
+        <td>{{shows.posted_by}}</td>
+        <td>{% if == 1 %}True{%else%}False{%endif%}</td>
+        <td>{{shows.first_name}} {{shows.last_name}}</td>
+        <td>
+          <a href="/tvshows/{{shows.id}}">View</a> 
+          {% if session['user_id'] ==  shows.user_id %}
+          <a href="/tvshows/{{shows.id}}/show">Show</a>
+          <a href="/tvshows/{{shows.id}}/show">Show</a>
+          <a href="/tvshows/{{shows.id}}/show">Show</a>
+        | <a href="/tvshows/{{shows.id}}/show/edit/delete">show|Edit|Delete</a> |
+          <a href="/tvshows/{{shows.id}}/show">Show</a>
+        {{%endif%}}
+        </td> 
+      </tr>
+    {%endfor%}
+    </tbody>
+    </table>
+    <a href="tvshows/new"></a>
+  </form>
+</body>
+</html>

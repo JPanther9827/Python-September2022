@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+</head>
+<body>
+    <h1>Heres all the Users:</h1>
+    {% for one_users in all_users %}
+    <p>{{one_users.first_name}}  email is {{one_users.email}} and his last name is {{one_users.last_name}} </p>
+    <a href="/user/edit/{{one_users.id}}">edit</a>
+    <a href="/user/delete/{{one_users.id}}">delete</a>
+    {% endfor %}
+    <br>
+    <a href="/user/new">Add A User</a>
+</body>
+</html>

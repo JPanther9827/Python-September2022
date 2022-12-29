@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello, welcome to rendering templates</h1>
+    <!-- you can access variables thats been passed to the template -->
+    <!-- the variable name on your server.py has to be the same as your html file inorder to work -->
+    <h2>{{name_of_variable_on_template}}</h2>
+    <!-- this is called Jinja -->
+    <!-- here you created a loop -->
+    {% for i in range(5) %}
+    <!-- acculuating numbers -->
+        <p>{{i}}</p>
+        <!-- test something about those numbers -->
+        {% if i == 3 %}
+        <p>This should appear below the number 3</p>
+        {% endif %}
+        <!-- this is closing your block or your for loop -->
+    {% endfor %}
+    <a href="/route_to_page_2">Page 2</a>
+    <!-- <script>alert("scripts!")</script> -->
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div> 
+        <h1>Add a New Recipe!</h1>
+        <a href="/dashboard">back to recipes</a>
+        <a href="/user/logout">logout</a>
+
+        
+       
+        
+        {% for message in get_flashed_messages() %}
+        <p>{{message}}</p>
+        {% endfor %}
+        <form action="/recipe/create" method="post">
+        <label for="">Name:</label>
+        <input type="text" name="name" id="name">
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+
+        <label for="instruction">Instructions:</label>
+        <textarea name="instruction" id="instruction" cols="30" rows="10"></textarea>
+
+        Date Cooked/Made: 
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date">
+
+        Under 30 Minutes?
+        <label for="yes">Yes</label>
+        <input type="radio" name="under" id="under" value="1">
+        <label for="no">No</label>
+        <input type="radio" name="under" id="under" value="0">
+
+        <button>Submit</button>
+    </form>
+    </div>
+
+
+
+
+
+</body>
+</html>

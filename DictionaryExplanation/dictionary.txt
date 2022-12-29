@@ -1,0 +1,51 @@
+import random
+customers = ["Alex","Bob","Carol","Dave","Flow","Katie","Nate"] Uses the name of each customer as the key,
+discount_dict = {customer:random.randint(1,100) for customer in customers} and Generates a random discount between $1 and $100 as the value against the key.
+print(discount_dict) print out the output 
+
+#Output
+
+{'Alex': 16, 'Bob': 26, 'Carol': 83, 'Dave': 21, 'Flow': 38, 'Katie': 47, 'Nate': 89}
+The above example does the following:
+
+Whats Going On Above:
+Loops through the list of customers (customers),
+Uses the name of each customer as the key, and
+Generates a random discount between $1 and $100 as the value against the key.
+
+"================================================================================================================================================================="
+
+days = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+temp_C = [30.5,32.6,31.8,33.4,29.8,30.2,29.9]
+We can now proceed to use dictionary comprehension to create a dictionary of weekly temperatures.
+
+# Creating a dictionary of weekly tempertaures
+# from the list of temperatures and days
+
+weekly_temp = {day:temp for (day,temp) in zip(days,temp_C)}
+
+print(weekly_temp)
+
+# Output
+{'Sunday': 30.5, 'Monday': 32.6, 'Tuesday': 31.8, 'Wednesday': 33.4, 'Thursday': 29.8, 'Friday': 30.2, 'S
+"============================================================================================================="
+
+Sum of Operation:
+
+only one iterable,
+two iterables, and
+an existing dictionary using conditions to filter through the items.
+
+"============================================================================================================"
+
+customer_10 = {customer:discount for (customer, discount) in discount_dict.items() if discount<30}
+
+print(customer_gifts)
+
+# Output
+{'Alex': 16, 'Bob': 26, 'Dave': 21}
+The above code does the following:
+
+For each item in our discount_dict, it taps into the value of the discount.
+If the discount is fewer than $30, it adds the corresponding customer:discount pair to our new dictionary customer_10.
+Notice how Alex, Bob, and Dave who got fewer than $30 discount have been added to the new dictionary.

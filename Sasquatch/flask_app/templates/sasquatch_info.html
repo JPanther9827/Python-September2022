@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <h1>Sasquatch Websighting</h1>
+    <a href="/dashboard">dashboard</a>
+    <a href="/user/logout">logout</a>
+    
+    
+    <div>
+    
+        <h1>Welcome, {{logged_user.first_name}}</h1>
+        
+        <p>Posted by: {{this_sasquatch.planner.first_name}} {{this_sasquatch.planner.last_name}}</p>
+
+        <p>location: {{this_sasquatch.location}}</p>
+        <p>what_happened ? {{this_sasquatch.what_happened}}</p>
+        <p>number of sasquatch: {{this_sasquatch.num_of_sasquatch}}</p>
+        
+
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
